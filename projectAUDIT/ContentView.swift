@@ -21,7 +21,7 @@ struct ContentView: View {
                     ForEach(0..<numberOfDividers, id: \.self) { _ in
                         Divider()
                             .frame(height: 125)
-                            .frame(width: 4)
+                            .frame(width: 3)
                             .background(Color.white)
                             .padding(.horizontal, 10) // Add padding between dividers
                     }
