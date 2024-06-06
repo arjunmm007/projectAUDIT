@@ -5,13 +5,13 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.black
+            Color.white
                 .ignoresSafeArea()
             
             VStack {
                 Spacer()
                 Text("A#")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .font(.system(size: 154))
                     .padding()
                 
@@ -22,7 +22,7 @@ struct ContentView: View {
                         Divider()
                             .frame(height: 125)
                             .frame(width: 3)
-                            .background(Color.white)
+                            .background(Color.black)
                             .padding(.horizontal, 10) // Add padding between dividers
                     }
                 }
