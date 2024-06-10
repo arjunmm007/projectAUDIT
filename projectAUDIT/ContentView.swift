@@ -58,19 +58,21 @@ struct ContentView: View {
             
             // Fourth Tab with the rectangle and slinky lines
             VStack(spacing: 135) { // Increased spacing between rectangle and lines
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray.opacity(0.5))
-                    .frame(width: 250, height: 250)
-                    .overlay(
-                        Text("A#")
-                            .foregroundColor(.black)
-                            .font(.system(size: 170))
-                    )
-                    .padding()
-               
-                SlinkyLines(time: time)
-                    .stroke(Color.black, lineWidth: 3)
-                    .frame(height: 250) // Adjusted frame height
+                GeometryReader { geo in
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.gray.opacity(0.5))
+                        .frame(width: 325, height: 500)
+                        .overlay(
+                            Text("A#")
+                                .foregroundColor(.black)
+                                .font(.system(size: 170))
+                        )
+                        .padding()
+                    
+                    SlinkyLines(time: time)
+                        .stroke(Color.black, lineWidth: 4)
+                        .frame(height: geo.size.height - 20) // Adjusted frame height
+                }
             }
             .tabItem {
                 Image(systemName: "speedometer")
