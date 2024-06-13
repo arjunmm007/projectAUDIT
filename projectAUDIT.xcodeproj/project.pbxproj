@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE19D7AC2C1B85D600EFD9FB /* Another1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19D7AB2C1B85D600EFD9FB /* Another1.swift */; };
+		EE19D7B02C1B8C2900EFD9FB /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19D7AF2C1B8C2900EFD9FB /* SwiftUIView.swift */; };
 		EE6FC6452BC865D100911BA4 /* projectAUDITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */; };
 		EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6462BC865D100911BA4 /* ContentView.swift */; };
 		EE6FC6492BC865D200911BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE6FC6482BC865D200911BA4 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE19D7AB2C1B85D600EFD9FB /* Another1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Another1.swift; sourceTree = "<group>"; };
+		EE19D7AF2C1B8C2900EFD9FB /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		EE6FC6412BC865D100911BA4 /* projectAUDIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectAUDIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectAUDITApp.swift; sourceTree = "<group>"; };
 		EE6FC6462BC865D100911BA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		EE6FC6382BC865D100911BA4 = {
 			isa = PBXGroup;
 			children = (
+				EE19D7AB2C1B85D600EFD9FB /* Another1.swift */,
+				EE19D7AF2C1B8C2900EFD9FB /* SwiftUIView.swift */,
 				EE6FC6432BC865D100911BA4 /* projectAUDIT */,
 				EE6FC6542BC865D200911BA4 /* projectAUDITTests */,
 				EE6FC65E2BC865D200911BA4 /* projectAUDITUITests */,
@@ -258,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */,
+				EE19D7AC2C1B85D600EFD9FB /* Another1.swift in Sources */,
+				EE19D7B02C1B8C2900EFD9FB /* SwiftUIView.swift in Sources */,
 				EE6FC6452BC865D100911BA4 /* projectAUDITApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
