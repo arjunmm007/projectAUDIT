@@ -54,7 +54,181 @@ struct PaintPage: View {
                     .stroke(Color.black, lineWidth: 4) // Maintained line thickness
                     .frame(height: geo.size.height - 20) // Adjusted frame height
                 
-               
+            }
+        }
+        .onReceive(timer) { _ in
+            // Update time for animation
+            self.time += 0.1 // Adjust speed here
+        }
+    }
+}
+
+struct SixthTab: View {
+    @State private var circlePosition1 = CGPoint(x: 100, y: 100) // Initial position of the first circle
+    @State private var circlePosition2 = CGPoint(x: 200, y: 200) // Initial position of the second circle
+    @State private var time: Double = 0 // Added state for animation time
+
+    var body: some View {
+        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
+        
+        VStack(spacing: 135) { // Increased spacing between rectangle and lines
+            GeometryReader { geo in
+                let rectangleWidth: CGFloat = 325 // Width of the rectangle
+                let spaceOnRight = geo.size.width - rectangleWidth
+                let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(red: 0.4, green: 0.2588, blue: 0.1608)) // Brown color
+                    .frame(width: geo.size.width, height: geo.size.height)
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
+                    .frame(width: rectangleWidth, height: 300)
+                    .overlay(
+                        Text("A#")
+                            .foregroundColor(.black)
+                            .font(.system(size: 170,  weight: .bold))
+                    )
+                    .padding()
+                    .offset(x: spaceOnLeft) // Offset the rectangle to the right
+                    .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
+                
+                SlinkyLines(time: time)
+                    .stroke(Color.black, lineWidth: 4) // Maintained line thickness
+                    .frame(height: geo.size.height - 20) // Adjusted frame height
+                
+                // First draggable circle
+                Circle()
+                    .fill(Color.black)
+                    .frame(width: 35, height: 35)
+                    .position(circlePosition1)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.circlePosition1 = value.location
+                            }
+                    )
+                
+                // Second draggable circle
+                Circle()
+                    .fill(Color.black)
+                    .frame(width: 35, height: 35)
+                    .position(circlePosition2)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.circlePosition2 = value.location
+                            }
+                    )
+                
+            }
+        }
+        .onReceive(timer) { _ in
+            // Update time for animation
+            self.time += 0.1 // Adjust speed here
+        }
+    }
+}
+
+struct SeventhTab: View {
+    @State private var circlePosition1 = CGPoint(x: 100, y: 100) // Initial position of the first circle
+    @State private var circlePosition2 = CGPoint(x: 200, y: 200) // Initial position of the second circle
+    @State private var time: Double = 0 // Added state for animation time
+    
+    var body: some View {
+        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
+        
+        VStack(spacing: 135) { // Increased spacing between rectangle and lines
+            GeometryReader { geo in
+                let rectangleWidth: CGFloat = 325 // Width of the rectangle
+                let spaceOnRight = geo.size.width - rectangleWidth
+                let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(red: 0.6706, green: 0.4941, blue: 0.2980)) // Light brown color
+                    .frame(width: geo.size.width, height: geo.size.height)
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
+                    .frame(width: rectangleWidth, height: 300)
+                    .overlay(
+                        Text("A#")
+                            .foregroundColor(.black)
+                            .font(.system(size: 170,  weight: .bold))
+                    )
+                    .padding()
+                    .offset(x: spaceOnLeft) // Offset the rectangle to the right
+                    .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
+                
+                SlinkyLines(time: time)
+                    .stroke(Color.black, lineWidth: 4) // Maintained line thickness
+                    .frame(height: geo.size.height - 20) // Adjusted frame height
+                
+                // First draggable circle
+                Circle()
+                    .fill(Color.black)
+                    .frame(width: 35, height: 35)
+                    .position(circlePosition1)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.circlePosition1 = value.location
+                            }
+                    )
+                
+                // Second draggable circle
+                Circle()
+                    .fill(Color.black)
+                    .frame(width: 35, height: 35)
+                    .position(circlePosition2)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.circlePosition2 = value.location
+                            }
+                    )
+                
+            }
+        }
+        .onReceive(timer) { _ in
+            // Update time for animation
+            self.time += 0.1 // Adjust speed here
+        }
+    }
+}
+
+struct EighthTab: View {
+    @State private var time: Double = 0 // Added state for animation time
+    
+    var body: some View {
+        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
+        VStack(spacing: 20) {
+            GeometryReader { geo in
+                let rectangleWidth: CGFloat = 325 // Width of the rectangle
+                let spaceOnRight = geo.size.width - rectangleWidth
+                let spaceOnLeft = spaceOnRight / 2 // Center the rectangle
+                
+                // Gray rectangle
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.gray.opacity(0.5)) // Gray color
+                    .frame(width: 332, height: 350)
+                    .offset(x: spaceOnLeft) // Offset the gray rectangle to the center
+                
+                // Same rectangle with A#
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
+                    .frame(width: 300, height: 275)
+                    .overlay(
+                        Text("A#")
+                            .font(.system(size: 170, weight: .bold))
+                            .foregroundColor(.black)
+                    )
+                    .padding()
+                    .offset(x: spaceOnLeft) // Offset the green rectangle to the center
+                
+                SlinkyLines(time: time)
+                    .stroke(Color.black, lineWidth: 4) // Maintained line thickness
+                    .frame(height: geo.size.height - 20) // Adjusted frame height
             }
         }
         .onReceive(timer) { _ in
@@ -66,12 +240,9 @@ struct PaintPage: View {
 
 struct ContentView: View {
     @State private var selectedTab = 0 // Added state for selected tab
-    @State private var time: Double = 0 // Added state for animation time
-    
+
     var body: some View {
-        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
-        
-        return TabView(selection: $selectedTab) {
+        TabView(selection: $selectedTab) {
             // First Tab (Placeholder)
             Text("Learn")
                 .tabItem {
@@ -107,117 +278,26 @@ struct ContentView: View {
                 }
                 .tag(4)
             
-            // Sixth Tab (More)
-            VStack(spacing: 135) { // Increased spacing between rectangle and lines
-                GeometryReader { geo in
-                    let rectangleWidth: CGFloat = 325 // Width of the rectangle
-                    let spaceOnRight = geo.size.width - rectangleWidth
-                    let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
-                    
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(red: 0.4, green: 0.2588, blue: 0.1608)) // Brown color
-                        .frame(width: geo.size.width, height: geo.size.height)
-                    
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
-                        .frame(width: rectangleWidth, height: 300)
-                        .overlay(
-                            Text("A#")
-                                .foregroundColor(.black)
-                                .font(.system(size: 170,  weight: .bold))
-                        )
-                        .padding()
-                        .offset(x: spaceOnLeft) // Offset the rectangle to the right
-                        .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
-                    
-                    SlinkyLines(time: time)
-                        .stroke(Color.black, lineWidth: 4) // Maintained line thickness
-                        .frame(height: geo.size.height - 20) // Adjusted frame height
+            // Sixth Tab with draggable circles
+            SixthTab()
+                .tabItem {
+                    Image(systemName: "ellipsis")
                 }
-            }
-            .tabItem {
-                Image(systemName: "ellipsis")
-            }
-            .tag(5)
+                .tag(5)
             
-            // Seventh Tab (Settings)
-            VStack(spacing: 135) { // Increased spacing between rectangle and lines
-                GeometryReader { geo in
-                    let rectangleWidth: CGFloat = 325 // Width of the rectangle
-                    let spaceOnRight = geo.size.width - rectangleWidth
-                    let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
-                    
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(red: 0.6706, green: 0.4941, blue: 0.2980)) // Light brown color
-                        .frame(width: geo.size.width, height: geo.size.height)
-                    
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
-                        .frame(width: rectangleWidth, height: 300)
-                        .overlay(
-                            Text("A#")
-                                .foregroundColor(.black)
-                                .font(.system(size: 170,  weight: .bold))
-                        )
-                        .padding()
-                        .offset(x: spaceOnLeft) // Offset the rectangle to the right
-                        .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
-                    
-                    SlinkyLines(time: time)
-                        .stroke(Color.black, lineWidth: 4) // Maintained line thickness
-                        .frame(height: geo.size.height - 20) // Adjusted frame height
-                    
-                    
+            // Seventh Tab with rectangle and slinky lines
+            SeventhTab()
+                .tabItem {
+                    Image(systemName: "circle")
                 }
-            }
-            .tabItem {
-                Image(systemName: "circle")
-            }
-            .tag(6)
+                .tag(6)
             
-            // Eighth Tab (Custom Shape)
-            VStack(spacing: 20) {
-                GeometryReader { geo in
-                    let rectangleWidth: CGFloat = 325 // Width of the rectangle
-                    let spaceOnRight = geo.size.width - rectangleWidth
-                    let spaceOnLeft = spaceOnRight / 2 // Center the rectangle
-                    
-                    // Gray rectangle
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.gray.opacity(0.5)) // Gray color
-                        .frame(width: 332, height: 350)
-                        .offset(x: spaceOnLeft) // Offset the gray rectangle to the center
-                    // Same rectangle with A#
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
-                        .frame(width: 300, height: 275)
-                        .overlay(
-                            Text("A#")
-                                .font(.system(size: 170,  weight: .bold))
-                                .foregroundColor(.black)
-                        )
-                        .padding()
-                        .offset(x: spaceOnLeft) // Offset the green rectangle to the center
-                    
-                    SlinkyLines(time: time)
-                        .stroke(Color.black, lineWidth: 4) // Maintained line thickness
-                        .frame(height: geo.size.height - 20) // Adjusted frame height
+            // Eighth Tab with custom shape
+            EighthTab()
+                .tabItem {
+                    Image(systemName: "star")
                 }
-            }
-            .tabItem {
-                Image(systemName: "star")
-            }
-            .tag(7)
-
-
-
-
-        }
-        .padding(.bottom, 10) // Adjust bottom padding for TabView
-        .offset(y: 10) // Lowering the TabView slightly
-        .onReceive(timer) { _ in
-            // Update time for animation
-            self.time += 0.1 // Adjust speed here
+                .tag(7)
         }
     }
 }
