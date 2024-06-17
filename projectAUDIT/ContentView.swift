@@ -78,7 +78,7 @@ struct SixthTab: View {
                 let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
                 
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(red: 0.4, green: 0.2588, blue: 0.1608)) // Brown color
+                    .fill(Color(red: 0.4, green: 0.2588, blue: 0.1608)).edgesIgnoringSafeArea(.all) // Brown color
                     .frame(width: geo.size.width, height: geo.size.height)
                 
                 RoundedRectangle(cornerRadius: 10)
@@ -144,10 +144,10 @@ struct SeventhTab: View {
                 let spaceOnRight = geo.size.width - rectangleWidth
                 let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(red: 0.6706, green: 0.4941, blue: 0.2980)) // Light brown color
-                    .frame(width: geo.size.width, height: geo.size.height)
-                
+                // Full-screen background color
+                Color(red: 0.6706, green: 0.4941, blue: 0.2980) // Light brown color
+                    .edgesIgnoringSafeArea(.all) // Ensure it covers the whole screen
+
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
                     .frame(width: rectangleWidth, height: 300)
@@ -196,6 +196,7 @@ struct SeventhTab: View {
         }
     }
 }
+
 
 struct EighthTab: View {
     @State private var time: Double = 0 // Added state for animation time
