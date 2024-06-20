@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EE19D7AC2C1B85D600EFD9FB /* Another1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19D7AB2C1B85D600EFD9FB /* Another1.swift */; };
 		EE19D7B02C1B8C2900EFD9FB /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19D7AF2C1B8C2900EFD9FB /* SwiftUIView.swift */; };
+		EE580DBE2C20DBE900A45C39 /* SlinkyLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DBD2C20DBE900A45C39 /* SlinkyLines.swift */; };
+		EE580DC02C20DDCA00A45C39 /* PaintPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DBF2C20DDCA00A45C39 /* PaintPage.swift */; };
+		EE580DC22C20DEC100A45C39 /* SixthTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC12C20DEC100A45C39 /* SixthTab.swift */; };
+		EE580DC42C20E55200A45C39 /* SeventhTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC32C20E55200A45C39 /* SeventhTab.swift */; };
+		EE580DC62C20E69800A45C39 /* EightTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC52C20E69800A45C39 /* EightTab.swift */; };
+		EE580DC82C24A99D00A45C39 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */; };
 		EE6FC6452BC865D100911BA4 /* projectAUDITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */; };
 		EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6462BC865D100911BA4 /* ContentView.swift */; };
 		EE6FC6492BC865D200911BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE6FC6482BC865D200911BA4 /* Assets.xcassets */; };
@@ -38,6 +44,12 @@
 /* Begin PBXFileReference section */
 		EE19D7AB2C1B85D600EFD9FB /* Another1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Another1.swift; sourceTree = "<group>"; };
 		EE19D7AF2C1B8C2900EFD9FB /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		EE580DBD2C20DBE900A45C39 /* SlinkyLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlinkyLines.swift; sourceTree = "<group>"; };
+		EE580DBF2C20DDCA00A45C39 /* PaintPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintPage.swift; sourceTree = "<group>"; };
+		EE580DC12C20DEC100A45C39 /* SixthTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthTab.swift; sourceTree = "<group>"; };
+		EE580DC32C20E55200A45C39 /* SeventhTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhTab.swift; sourceTree = "<group>"; };
+		EE580DC52C20E69800A45C39 /* EightTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightTab.swift; sourceTree = "<group>"; };
+		EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		EE6FC6412BC865D100911BA4 /* projectAUDIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectAUDIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectAUDITApp.swift; sourceTree = "<group>"; };
 		EE6FC6462BC865D100911BA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +114,12 @@
 			children = (
 				EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */,
 				EE6FC6462BC865D100911BA4 /* ContentView.swift */,
+				EE580DBD2C20DBE900A45C39 /* SlinkyLines.swift */,
+				EE580DBF2C20DDCA00A45C39 /* PaintPage.swift */,
+				EE580DC12C20DEC100A45C39 /* SixthTab.swift */,
+				EE580DC32C20E55200A45C39 /* SeventhTab.swift */,
+				EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */,
+				EE580DC52C20E69800A45C39 /* EightTab.swift */,
 				EE6FC6482BC865D200911BA4 /* Assets.xcassets */,
 				EE6FC64A2BC865D200911BA4 /* Preview Content */,
 			);
@@ -264,9 +282,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */,
+				EE580DC22C20DEC100A45C39 /* SixthTab.swift in Sources */,
+				EE580DC62C20E69800A45C39 /* EightTab.swift in Sources */,
 				EE19D7AC2C1B85D600EFD9FB /* Another1.swift in Sources */,
+				EE580DC82C24A99D00A45C39 /* AudioRecorder.swift in Sources */,
 				EE19D7B02C1B8C2900EFD9FB /* SwiftUIView.swift in Sources */,
+				EE580DC02C20DDCA00A45C39 /* PaintPage.swift in Sources */,
+				EE580DBE2C20DBE900A45C39 /* SlinkyLines.swift in Sources */,
 				EE6FC6452BC865D100911BA4 /* projectAUDITApp.swift in Sources */,
+				EE580DC42C20E55200A45C39 /* SeventhTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
