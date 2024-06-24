@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = 0 // Added state for selected tab
+    @StateObject private var audioRecorder = AudioRecorder() // Initialize the AudioRecorder
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -19,12 +20,12 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            // Third Tab (Placeholder)
+            // Third Tab with waveform view
             Text("Create")
                 .tabItem {
                     Image(systemName: "pencil")
                 }
-                .tag(2)
+            .tag(2)
             
             // Fourth Tab with the rectangle and slinky lines
             PaintPage()
@@ -60,6 +61,9 @@ struct ContentView: View {
                     Image(systemName: "star")
                 }
                 .tag(7)
+        }
+        .onAppear {
+            audioRecorder.startAudioEngine()
         }
     }
 }

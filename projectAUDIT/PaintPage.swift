@@ -1,38 +1,58 @@
 import SwiftUI
 
 struct PaintPage: View {
-    @State private var time: Double = 0 // Added state for animation time
+    @StateObject private var audioRecorder = AudioRecorder() // Initialize the AudioRecorder
     
     var body: some View {
-        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
-        
-        return VStack(spacing: 135) { // Increased spacing between rectangle and lines
-            GeometryReader { geo in
-                let rectangleWidth: CGFloat = 325 // Width of the rectangle
-                let spaceOnRight = geo.size.width - rectangleWidth
-                let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
-                
+        ZStack {
+            ZStack {
+                // Background rectangle (light grey)
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray.opacity(0.5)) // Use fixed color
-                    .frame(width: rectangleWidth, height: 300)
-                    .overlay(
-                        Text("A#")
-                            .foregroundColor(.black)
-                            .font(.system(size: 170,  weight: .bold))
-                    )
+                    .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
+                    .frame(width: 340, height: 430)
+                    .cornerRadius(10)
+                    .offset(x: 0, y: -130) // Adjusted offset to move higher on the screen
+                
+                // Olive green rectangle with "A#"
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color(red: 0.46, green: 0.64, blue: 0.50))
+                    .frame(width: 300, height: 300)
+                    .cornerRadius(10)
+                    .offset(x: 0, y: -173.89) // Adjusted offset to move higher on the screen
+                
+                // Text "A#"
+                Text("A#")
+                    .font(.system(size: 170, weight: .bold))
+                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                    .offset(x: 0, y: -171) // Adjusted offset to move higher on the screen
+            }
+            .frame(width: 360, height: 462)
+            .offset(x: 0, y: 0)
+            
+            // Bold "Winkboy" Text
+            Text("Winkboy")
+                .font(.system(size: 50, weight: .bold)) // Changed weight to .black for a bolder look
+                .foregroundColor(Color(red: 0.70, green: 0.70, blue: 0.70))
+                .offset(x: 0, y: 30.50) // Adjusted offset to move higher on the screen
+            
+            // Voice Memo section (WaveformView)
+            VStack {
+                WaveformView(audioRecorder: audioRecorder)
+                    .frame(height: 200)
                     .padding()
-                    .offset(x: spaceOnLeft) // Offset the rectangle to the right
-                    .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
-                
-                SlinkyLines(time: time)
-                    .stroke(Color.black, lineWidth: 4) // Maintained line thickness
-                    .frame(height: geo.size.height - 20) // Adjusted frame height
-                
+                    .offset(y: 300) // Adjust vertical position as needed
             }
         }
-        .onReceive(timer) { _ in
-            // Update time for animation
-            self.time += 0.1 // Adjust speed here
+        .frame(width: 430, height: 932)
+        .onAppear {
+            audioRecorder.startAudioEngine() // Start audio engine when view appears
         }
     }
 }
+
+struct PaintPage_Previews: PreviewProvider {
+    static var previews: some View {
+        PaintPage()
+    }
+}
+

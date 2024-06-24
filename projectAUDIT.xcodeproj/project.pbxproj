@@ -15,6 +15,7 @@
 		EE580DC42C20E55200A45C39 /* SeventhTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC32C20E55200A45C39 /* SeventhTab.swift */; };
 		EE580DC62C20E69800A45C39 /* EightTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC52C20E69800A45C39 /* EightTab.swift */; };
 		EE580DC82C24A99D00A45C39 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */; };
+		EE580DCA2C24B1A300A45C39 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC92C24B1A300A45C39 /* Waveform.swift */; };
 		EE6FC6452BC865D100911BA4 /* projectAUDITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */; };
 		EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6462BC865D100911BA4 /* ContentView.swift */; };
 		EE6FC6492BC865D200911BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE6FC6482BC865D200911BA4 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		EE580DC32C20E55200A45C39 /* SeventhTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhTab.swift; sourceTree = "<group>"; };
 		EE580DC52C20E69800A45C39 /* EightTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightTab.swift; sourceTree = "<group>"; };
 		EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		EE580DC92C24B1A300A45C39 /* Waveform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waveform.swift; sourceTree = "<group>"; };
 		EE6FC6412BC865D100911BA4 /* projectAUDIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectAUDIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectAUDITApp.swift; sourceTree = "<group>"; };
 		EE6FC6462BC865D100911BA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				EE580DC12C20DEC100A45C39 /* SixthTab.swift */,
 				EE580DC32C20E55200A45C39 /* SeventhTab.swift */,
 				EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */,
+				EE580DC92C24B1A300A45C39 /* Waveform.swift */,
 				EE580DC52C20E69800A45C39 /* EightTab.swift */,
 				EE6FC6482BC865D200911BA4 /* Assets.xcassets */,
 				EE6FC64A2BC865D200911BA4 /* Preview Content */,
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */,
+				EE580DCA2C24B1A300A45C39 /* Waveform.swift in Sources */,
 				EE580DC22C20DEC100A45C39 /* SixthTab.swift in Sources */,
 				EE580DC62C20E69800A45C39 /* EightTab.swift in Sources */,
 				EE19D7AC2C1B85D600EFD9FB /* Another1.swift in Sources */,
