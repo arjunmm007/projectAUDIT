@@ -6,11 +6,11 @@ struct WaveformView: View {
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width / CGFloat(audioRecorder.levels.count)
-            let maxHeight = geometry.size.height * 0.8 // Adjust maximum height for better visualization
+            let maxHeight = geometry.size.height * 1.9 // Adjust maximum height for better visualization
             
             HStack(spacing: 2) {
                 ForEach(audioRecorder.levels, id: \.self) { level in
-                    let normalizedLevel = CGFloat(level * 6) // Increase sensitivity factor as needed
+                    let normalizedLevel = CGFloat(level * 10) // Increase sensitivity factor to 10
                     let height = min(maxHeight, max(2, normalizedLevel * geometry.size.height))
                     
                     Rectangle()

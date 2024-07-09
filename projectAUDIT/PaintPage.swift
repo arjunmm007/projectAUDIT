@@ -1,58 +1,70 @@
 import SwiftUI
+import PythonKit
 
 struct PaintPage: View {
     @StateObject private var audioRecorder = AudioRecorder() // Initialize the AudioRecorder
+    @State private var note: String = "" // Default note
+    @State private var frequency: Int = 200
+    @State private var time: Double = 0 // Added state for animation time
+
     
     var body: some View {
-        ZStack {
-            ZStack {
-                // Background rectangle (light grey)
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
-                    .frame(width: 340, height: 430)
-                    .cornerRadius(10)
-                    .offset(x: 0, y: -130) // Adjusted offset to move higher on the screen
+        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
+        
+        VStack(spacing: 135) { // Increased spacing between rectangle and lines
+            GeometryReader { geo in
+                let rectangleWidth: CGFloat = 325 // Width of the rectangle
+                let spaceOnRight = geo.size.width - rectangleWidth
+                let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
                 
-                // Olive green rectangle with "A#"
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color(red: 0.46, green: 0.64, blue: 0.50))
-                    .frame(width: 300, height: 300)
-                    .cornerRadius(10)
-                    .offset(x: 0, y: -173.89) // Adjusted offset to move higher on the screen
+                                    .fill(Color.white) // Changed color to white
+                                    .frame(width: geo.size.width, height: geo.size.height)
                 
-                // Text "A#"
-                Text("A#")
-                    .font(.system(size: 170, weight: .bold))
-                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                    .offset(x: 0, y: -171) // Adjusted offset to move higher on the screen
-            }
-            .frame(width: 360, height: 462)
-            .offset(x: 0, y: 0)
-            
-            // Bold "Winkboy" Text
-            Text("Winkboy")
-                .font(.system(size: 50, weight: .bold)) // Changed weight to .black for a bolder look
-                .foregroundColor(Color(red: 0.70, green: 0.70, blue: 0.70))
-                .offset(x: 0, y: 30.50) // Adjusted offset to move higher on the screen
-            
-            // Voice Memo section (WaveformView)
-            VStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(white: 0.79)) // Changed color to grey
+                                    .frame(width: rectangleWidth, height: 300)
+                                    .overlay(
+                                        Text("A#")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 170, weight: .bold))
+                                    )
+                                    .padding()
+                                    .offset(x: spaceOnLeft) // Offset the rectangle to the right
+                                    .offset(y: 30) // Added y-offset for positioning
+                                    .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
+                
+                // Add the WaveformView here, at the same position as in SeventhTab
                 WaveformView(audioRecorder: audioRecorder)
-                    .frame(height: 200)
+                    .frame(height: 200) // Adjusted height to match the SeventhTab
                     .padding()
-                    .offset(y: 300) // Adjust vertical position as needed
+                    .offset(x: 0, y: 0)
+                    .offset(y: 400)// Match the offset of the rectangle and place it in the correct spot
+                
             }
         }
-        .frame(width: 430, height: 932)
+        .onReceive(timer) { _ in
+            // Update time for animation
+            self.time += 0.1 // Adjust speed here
+        }
         .onAppear {
             audioRecorder.startAudioEngine() // Start audio engine when view appears
         }
     }
+    func getNote() -> String {
+        let sys = Python.import("sys")
+        sys.path.append("/Users/arjunmehta/Desktop/projectAudit") // Update with the correct path
+        let example = Python.import("audio")
+        let response = example.midiToNote(200) // Adjust the argument as needed
+        let note = response[0]
+        return String(note)!
+    }
+
 }
+
 
 struct PaintPage_Previews: PreviewProvider {
     static var previews: some View {
         PaintPage()
     }
 }
-

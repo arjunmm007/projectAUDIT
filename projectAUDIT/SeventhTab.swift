@@ -1,68 +1,63 @@
 import SwiftUI
+import PythonKit
 
 struct SeventhTab: View {
-    @State private var circlePosition1 = CGPoint(x: 100, y: 100) // Initial position of the first circle
-    @State private var circlePosition2 = CGPoint(x: 200, y: 200) // Initial position of the second circle
-    @State private var time: Double = 0 // Added state for animation time
+    @StateObject private var audioRecorder = AudioRecorder() // Initialize the AudioRecorder
+    @State private var note: String = "" // Default note
+    @State private var frequency: Int = 200
+
     
     var body: some View {
-        let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect() // Adjust frequency here
-        
-        VStack(spacing: 135) { // Increased spacing between rectangle and lines
-            GeometryReader { geo in
-                let rectangleWidth: CGFloat = 325 // Width of the rectangle
-                let spaceOnRight = geo.size.width - rectangleWidth
-                let spaceOnLeft = spaceOnRight / 3.7 // Adjust the value to move the rectangle more to the right
-                
-                // Full-screen background color
-                Color(red: 0.6706, green: 0.4941, blue: 0.2980) // Light brown color
-                    .edgesIgnoringSafeArea(.all) // Ensure it covers the whole screen
-
+        ZStack {
+            ZStack {
+                // Background rectangle (light grey)
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(red: 0.5843, green: 0.7216, blue: 0.6078, opacity: 1)) // olive green color
-                    .frame(width: rectangleWidth, height: 300)
-                    .overlay(
-                        Text("A#")
-                            .foregroundColor(.black)
-                            .font(.system(size: 170,  weight: .bold))
-                    )
+                    .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
+                    .frame(width: 340, height: 430)
+                    .cornerRadius(10)
+                    .offset(x: 0, y: -130) // Adjusted offset to move higher on the screen
+                
+                // Olive green rectangle with dynamic note
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color(red: 0.46, green: 0.64, blue: 0.50))
+                    .frame(width: 300, height: 300)
+                    .cornerRadius(10)
+                    .offset(x: 0, y: -173.89) // Adjusted offset to move higher on the screen
+                
+                // Text displaying the dynamic note
+                Text(note)
+                    .font(.system(size: 170, weight: .bold))
+                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                    .offset(x: 0, y: -171) // Adjusted offset to move higher on the screen
+            }
+            .frame(width: 360, height: 462)
+            .offset(x: 0, y: 0)
+            
+            // Bold "Winkboy" Text
+            Text("Winkboy")
+                .font(.system(size: 50, weight: .bold)) // Changed weight to .black for a bolder look
+                .foregroundColor(Color(red: 0.70, green: 0.70, blue: 0.70))
+                .offset(x: 0, y: 30.50) // Adjusted offset to move higher on the screen
+            
+            // Voice Memo section (WaveformView)
+            VStack {
+                WaveformView(audioRecorder: audioRecorder)
+                    .frame(height: 200)
                     .padding()
-                    .offset(x: spaceOnLeft) // Offset the rectangle to the right
-                    .padding(.bottom, 20) // Adjusted bottom padding to bring down the rectangle
-                
-                SlinkyLines(time: time)
-                    .stroke(Color.black, lineWidth: 4) // Maintained line thickness
-                    .frame(height: geo.size.height - 20) // Adjusted frame height
-                
-                // First draggable circle
-                Circle()
-                    .fill(Color.black)
-                    .frame(width: 35, height: 35)
-                    .position(circlePosition1)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                self.circlePosition1 = value.location
-                            }
-                    )
-                
-                // Second draggable circle
-                Circle()
-                    .fill(Color.black)
-                    .frame(width: 35, height: 35)
-                    .position(circlePosition2)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                self.circlePosition2 = value.location
-                            }
-                    )
-                
+                    .offset(y: 300) // Adjust vertical position as needed
             }
         }
-        .onReceive(timer) { _ in
-            // Update time for animation
-            self.time += 0.1 // Adjust speed here
+        .frame(width: 430, height: 932)
+        .onAppear {
+            audioRecorder.startAudioEngine() // Start audio engine when view appears
         }
+    }
+    func getNote(freq: Int) {
+        let sys = Python.import("sys")
+        sys.path.append("/Users/arjunmehta/Desktop/projectAudit") // Update with the correct path
+        let example = Python.import("audio")
+        let response = example.midiToNote(freq) // Adjust the argument as needed
+        let rawNote = response[0]
+        note = String(rawNote)!
     }
 }

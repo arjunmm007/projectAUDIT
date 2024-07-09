@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE08205B2C35001800355587 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE08205A2C35001800355587 /* PythonKit */; };
 		EE19D7AC2C1B85D600EFD9FB /* Another1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19D7AB2C1B85D600EFD9FB /* Another1.swift */; };
 		EE19D7B02C1B8C2900EFD9FB /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19D7AF2C1B8C2900EFD9FB /* SwiftUIView.swift */; };
 		EE580DBE2C20DBE900A45C39 /* SlinkyLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DBD2C20DBE900A45C39 /* SlinkyLines.swift */; };
@@ -16,6 +17,7 @@
 		EE580DC62C20E69800A45C39 /* EightTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC52C20E69800A45C39 /* EightTab.swift */; };
 		EE580DC82C24A99D00A45C39 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */; };
 		EE580DCA2C24B1A300A45C39 /* Waveform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE580DC92C24B1A300A45C39 /* Waveform.swift */; };
+		EE580DCF2C2A37C000A45C39 /* audio.py in Resources */ = {isa = PBXBuildFile; fileRef = EE580DCE2C2A37C000A45C39 /* audio.py */; };
 		EE6FC6452BC865D100911BA4 /* projectAUDITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */; };
 		EE6FC6472BC865D100911BA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FC6462BC865D100911BA4 /* ContentView.swift */; };
 		EE6FC6492BC865D200911BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE6FC6482BC865D200911BA4 /* Assets.xcassets */; };
@@ -52,6 +54,7 @@
 		EE580DC52C20E69800A45C39 /* EightTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightTab.swift; sourceTree = "<group>"; };
 		EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		EE580DC92C24B1A300A45C39 /* Waveform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waveform.swift; sourceTree = "<group>"; };
+		EE580DCE2C2A37C000A45C39 /* audio.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = audio.py; path = ../../../../../../../../../Users/arjunmehta/Desktop/projectAudit/audio.py; sourceTree = "<group>"; };
 		EE6FC6412BC865D100911BA4 /* projectAUDIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projectAUDIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6FC6442BC865D100911BA4 /* projectAUDITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectAUDITApp.swift; sourceTree = "<group>"; };
 		EE6FC6462BC865D100911BA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE08205B2C35001800355587 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +127,7 @@
 				EE580DC72C24A99D00A45C39 /* AudioRecorder.swift */,
 				EE580DC92C24B1A300A45C39 /* Waveform.swift */,
 				EE580DC52C20E69800A45C39 /* EightTab.swift */,
+				EE580DCE2C2A37C000A45C39 /* audio.py */,
 				EE6FC6482BC865D200911BA4 /* Assets.xcassets */,
 				EE6FC64A2BC865D200911BA4 /* Preview Content */,
 			);
@@ -170,6 +175,9 @@
 			dependencies = (
 			);
 			name = projectAUDIT;
+			packageProductDependencies = (
+				EE08205A2C35001800355587 /* PythonKit */,
+			);
 			productName = projectAUDIT;
 			productReference = EE6FC6412BC865D100911BA4 /* projectAUDIT.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +250,9 @@
 				Base,
 			);
 			mainGroup = EE6FC6382BC865D100911BA4;
+			packageReferences = (
+				EE580DCB2C2A35CD00A45C39 /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
 			productRefGroup = EE6FC6422BC865D100911BA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE580DCF2C2A37C000A45C39 /* audio.py in Resources */,
 				EE6FC64C2BC865D200911BA4 /* Preview Assets.xcassets in Resources */,
 				EE6FC6492BC865D200911BA4 /* Assets.xcassets in Resources */,
 			);
@@ -622,6 +634,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE580DCB2C2A35CD00A45C39 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE08205A2C35001800355587 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE580DCB2C2A35CD00A45C39 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE6FC6392BC865D100911BA4 /* Project object */;
 }
